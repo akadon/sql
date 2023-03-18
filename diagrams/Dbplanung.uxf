@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>16</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>32</x>
+      <y>432</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+BugPriority
+--
+priority_id {PK} : int
+priority_name : VC(255)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>464</x>
+      <y>464</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+BugStatus
+--
+status_id {PK} :  int
+status_name : VC(255) 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>1040</y>
+      <w>336</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Comment
+--
+comment_id {PK} : int
+bug_id (FK) : int
+author : VC(255)
+comment_date : date
+comment : text</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>32</x>
+      <y>864</y>
+      <w>336</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Tag
+--
+tag_id {PK} : int
+tag : VC(255)
+description : text
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>544</x>
+      <y>656</y>
+      <w>336</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Screenshot
+--
+image_id {PK} : int
+bug_id(FK) : int
+screenshot_image : BLOB
+caption : VC(255)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>32</x>
+      <y>624</y>
+      <w>336</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+BugSeverity
+--
+serverity_id {PK} : int
+serverity_name : VC(255)
+description : text
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1088</x>
+      <y>720</y>
+      <w>336</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Product
+--
+product_id {PK} : int
+account_id (PFK) : int
+product_name : VC(255)
+description : text
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>976</x>
+      <y>16</y>
+      <w>336</w>
+      <h>336</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Bug
+--
+bug_id {PK} : int
+priority_id(FK) : int
+status_id(FK) : int
+account_id(FK) : int
+severity_id(FK) : int
+date_reported  : date
+summary : VC(255)
+description : text
+resolution  : text
+hours : numeric(9,2)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1024</x>
+      <y>912</y>
+      <w>480</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+BugHistory
+--
+bug_History_id {PK} : int
+changed_By (FK-&gt; account_id) : int
+bug_id(FK) : int
+date_reported : date
+summary : text
+description : text
+resolution : text
+priority 
+hours : numeric(9,2)
+date_changed : date
+change_action : VC(255)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1584</x>
+      <y>16</y>
+      <w>672</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Account
+--
+account_id {PK} : int
+type_id(FK) : int
+role_id(FK) : int
+account_name : VC(255)
+first_name : VC(255)
+last_name : VC(255)
+email : VC(255)
+password_hash : CHAR(64)
+portrait_image : BLOB
+account_type : VC(255)
+account_role : VC(255)
+hourly_rate : numeric(9,2)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1552</x>
+      <y>496</y>
+      <w>336</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+AccountType
+--
+type_id {PK} : int
+account_id(PFK) : int
+type_name : VC(255)
+description : text
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1920</x>
+      <y>496</y>
+      <w>336</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+AccountRole
+--
+role_id {PK} : int
+role_name : VC(255)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>176</y>
+      <w>224</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>352</x>
+      <y>144</y>
+      <w>656</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;180.0;260.0;180.0;260.0;10.0;390.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>352</x>
+      <y>224</y>
+      <w>656</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;250.0;300.0;250.0;300.0;10.0;390.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>896</x>
+      <y>320</y>
+      <w>112</w>
+      <h>576</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..n</panel_attributes>
+    <additional_attributes>50.0;10.0;20.0;10.0;20.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>336</y>
+      <w>80</w>
+      <h>736</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;410.0;10.0;440.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1232</x>
+      <y>336</y>
+      <w>80</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>272</y>
+      <w>144</w>
+      <h>416</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1888</x>
+      <y>384</y>
+      <w>80</w>
+      <h>368</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1680</x>
+      <y>384</y>
+      <w>80</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1008</x>
+      <y>336</y>
+      <w>80</w>
+      <h>608</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1296</x>
+      <y>80</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+Reported_by &gt;
+m2=0..n</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1296</x>
+      <y>144</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+Assignet_to &gt;
+m2=0..n</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1296</x>
+      <y>208</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+Verified_by &gt;
+m2=0..n</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2080</x>
+      <y>384</y>
+      <w>80</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1488</x>
+      <y>384</y>
+      <w>128</w>
+      <h>560</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1360</x>
+      <y>320</y>
+      <w>112</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Unklar
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1456</x>
+      <y>352</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>30.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>32</x>
+      <y>16</y>
+      <w>704</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>Legende:
+A_I : auto_increment
+NN : Not Null
+N: NULL
+U: unique
+VC: Varcher
+PK: primarykey
+FK: foreignkey
+PFK: primary foreign key
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>32</x>
+      <y>1040</y>
+      <w>352</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+comment_closure
+--
+ancestor (PFK -&gt; Comment_id) 
+descendant (PFK -&gt; Comment_id)
+depth: int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>352</x>
+      <y>1008</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; ancestor
+</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>1232</y>
+      <w>304</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; descendant</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>592</x>
+      <y>864</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Bug_Tag
+--
+tag_id {PFK} : int
+bug_id (PFK) : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>352</x>
+      <y>848</y>
+      <w>272</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1760</x>
+      <y>720</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Product_Account
+--
+product_id {PFK} : int
+account_id (PFK) : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1408</x>
+      <y>768</y>
+      <w>384</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1088</x>
+      <y>464</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;table&gt;&gt;
+Bug_Product
+--
+bug_id {PFK} : int
+account_id (PFK) : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1232</x>
+      <y>576</y>
+      <w>80</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
