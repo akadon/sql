@@ -1,6 +1,6 @@
 # Bug Tracker DB
 
-MySQL database schema for a bug tracking system. School project.
+MySQL database schema for a bug tracking system.
 
 ## Tables
 
@@ -25,3 +25,9 @@ MySQL database schema for a bug tracking system. School project.
 
 - `schema/DB.sql` - full CREATE TABLE statements (MySQL InnoDB)
 - `diagrams/` - ER diagrams as UMlet `.uxf` source files and exported `.jpg`
+
+## ER Diagrams
+
+![Database schema](diagrams/Datenbank.jpg)
+
+![Database planning](diagrams/Dbplanung.jpg)
